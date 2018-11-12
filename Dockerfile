@@ -16,7 +16,7 @@ RUN set -x && \
         mosquitto-clients
 
 RUN mkdir /monitor && \
-    git clone https://github.com/andrewjfreyer/monitor.git /monitor
+    git clone --single-branch -b beta https://github.com/andrewjfreyer/monitor.git /monitor
 
 VOLUME ["/monitor", "/config"]
 # Set up the entry point script and default command
