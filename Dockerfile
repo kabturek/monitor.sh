@@ -1,10 +1,19 @@
-FROM alpine:3.8
+FROM ubuntu:bionic
 
 LABEL maintainer="Marcin Domański <marcin@kabturek.info>" \
      description="monitor.sh script"
 
 RUN set -x && \
-    apk --no-cache add bash mosquitto-clients bluez bluez-deprecated bc git curl
+    apt-get update && \
+    apt-get install -y  --no-install-recommends \
+        bash \
+        bc \
+        bluez \
+        bluez-hcidump \
+        ca-certificates \
+        curl \
+        git \
+        mosquitto-clients
 
 RUN mkdir /monitor && \
     git clone https://github.com/andrewjfreyer/monitor.git /monitor
