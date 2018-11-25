@@ -13,7 +13,8 @@ RUN set -x && \
         ca-certificates \
         curl \
         git \
-        mosquitto-clients
+        mosquitto-clients \
+        xxd 
 
 RUN mkdir /monitor && \
     git clone https://github.com/andrewjfreyer/monitor.git /monitor
